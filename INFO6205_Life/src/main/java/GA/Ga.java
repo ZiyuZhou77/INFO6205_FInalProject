@@ -22,7 +22,6 @@ public class Ga {
 	public HashMap<String,String> mutate(HashMap<String,String> mutate) {
 		  HashMap<String,String> mutated  = new HashMap<>();
 		  for(String key:mutate.keySet()){
-//		      System.out.println("Key: "+key+" Value: "+mutate.get(key));
 		      StringBuilder ha = new StringBuilder(key);
 		      int length = key.length();
 		      for(int j=0; j<length;j++){
@@ -71,7 +70,7 @@ public class Ga {
 		return putpattern2;
 	}
 	/**
-	 * to decide terminate the evolution or not, if generation>max, while loop kee do evolve)
+	 * to decide terminate the evolution or not, if generation>max, while loop keep doing evolve
 	 * @param patterncheck
 	 * @return
 	 */
@@ -99,9 +98,6 @@ public class Ga {
 		System.out.println(finalPoints);
 		return checkint;
 	}
-	/**
-	 * -------helper
-	 */
 	/**
 	 * get top pattern list's points pattern, and put it into list
 	 * @param a
@@ -133,9 +129,7 @@ public class Ga {
 			for(int i=topsList.size()-1; i>=topsList.size()-5; i--) {
 				top.add(topsList.get(i).getKey());
 				countgen.add(topsList.get(i).getValue());
-				//System.out.println("try get top pattern:"+topsList.get(i).getKey());
 			}
-			//System.out.println("trypattern:"+trypattern);
 			for(String a:trypattern.keySet()) {
 				String toadd=a;
 				for(int i=0;i<top.size(); i++) {
@@ -144,7 +138,6 @@ public class Ga {
 					}
 				}
 			}
-			System.out.println("return:"+toppattern);
 			return toppattern;
 			}
 }

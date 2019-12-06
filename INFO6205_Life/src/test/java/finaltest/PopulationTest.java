@@ -27,14 +27,13 @@ public class PopulationTest {
 	    
 	    @Test
 	    public void getPatternTest() {
-	    	System.out.println("do individual test");
 	    	assertEquals("-4 0,-4 4,-5 5,0 -4,4 -4,4 0,-3 -3,-2 -2,2 0,0 -1", trytest.get(2));
 	    	assertEquals("0 -4,1 1,0 -1,2 2,-2 -2", trytest.get(0));
 	    	assertEquals("-4 4,2 0,0 -2,-2 0,3 3,0 -1,-2 2,0 4,-1 1,-1 0", trytest.get(1));
 	    }
 	    
 	    /**
-	     * if check value>maxgeneration, return true, else return false
+	     * if value>maxgeneration, return true, else return false
 	     */
 	    @Test
 	    public void getGeneration() {

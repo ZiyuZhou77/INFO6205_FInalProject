@@ -36,12 +36,10 @@ public class Main {
 		}
 		
 		/**
-		 * check generation, if generation has >max, terminate, else do while loop until finding feneration>10000
+		 * check generation, if generation has >max, terminate, else do while loop until finding generation>10000
 		 */
 		testp=new HashMap<>();
 		testp=ga.Selection(ga.GetfitnessScore(putpattern), trypattern);
-		System.out.println("putP"+putpattern);
-		System.out.println("tryP:"+trypattern);
 		int checkint=ga.decideTermination(putpattern);
 	if(checkint==0) {
 		int i=0;
@@ -54,10 +52,8 @@ public class Main {
 				String getValue=getmutate.get(getKey);
 				newPatternList.put(getKey, getValue);
 			}
-			System.out.println("new:"+newPatternList);
 			putpattern2=new HashMap<>();
 			trypattern2=new HashMap<>();
-			System.out.println("test put:"+putpattern2);
 		
 			for(String getpatternkey2:newPatternList.keySet()) {
 				String runpattern2=newPatternList.get(getpatternkey2);
@@ -65,8 +61,6 @@ public class Main {
 				System.out.println("\n///run next 222222///"+generations.generation+" generation.");
 			    putpattern2.put(getpatternkey2, generations.generation);
 			    trypattern2.put(getpatternkey2, runpattern2);
-//			    putpattern=putpattern2;
-//			    trypattern=trypattern2;
 			    
 			}
 			checkint=ga.decideTermination(putpattern2);
