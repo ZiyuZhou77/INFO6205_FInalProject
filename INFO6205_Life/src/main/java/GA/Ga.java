@@ -11,6 +11,7 @@ import edu.neu.coe.info6205.life.base.Game;
 
 public class Ga {
 	private static final double mutationRate = 0.5;
+	public static final int maxgeneration=10000;
 	ArrayList<Long> countgen=new ArrayList<>();
 
 	/**
@@ -47,7 +48,7 @@ public class Ga {
 	 * @param x
 	 * @return
 	 */
-	public static final int maxgeneration=10000;
+
 	public boolean check(Long x) {
 		boolean getx=false;
 		if(x<maxgeneration) {
@@ -58,7 +59,12 @@ public class Ga {
 		}
 	}
 	
-	
+	/**
+	 * fitness function
+	 * @param putpattern
+	 * @return
+	 */
+
 	public HashMap<String, Long> GetfitnessScore(HashMap<String, Long> putpattern) {
 		HashMap<String,Long> putpattern2  = new HashMap<>();
 		for(String key:putpattern.keySet()){
@@ -112,7 +118,7 @@ public class Ga {
 	}
 	
 	/**
-	 * select top 5 generation's pattern and do mutate:<bits,points>
+	 * select the better half generation's pattern and do mutate:<bits,points>
 	 * @param putpattern2,trypattern
 	 * @return
 	 */
