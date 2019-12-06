@@ -42,13 +42,13 @@ public class PopulationTest {
 			System.out.println("*test generation pattern: " + trytest.get(3));
 			final Game.Behavior generations = Game.run(0L, tryp);
 			System.out.println("*get generation:"+generations.generation);
-			assertEquals(ga.check(generations.generation), true);
+			assertEquals(ga.check((int)generations.generation), true);
 			
 			String tryp2=trytest.get(1);
 			System.out.println("*test generation pattern2: " + trytest.get(4));
 			final Game.Behavior generations2 = Game.run(0L, tryp2);
 			System.out.println("*get generation2:"+generations2.generation);
-			assertEquals(ga.check(generations2.generation), true);
+			assertEquals(ga.check((int)generations2.generation), true);
 
 	    }
 	    

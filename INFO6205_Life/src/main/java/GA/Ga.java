@@ -12,7 +12,7 @@ import edu.neu.coe.info6205.life.base.Game;
 public class Ga {
 	private static final double mutationRate = 0.5;
 	public static final int maxgeneration=10000;
-	ArrayList<Long> countgen=new ArrayList<>();
+	ArrayList<Integer> countgen=new ArrayList<>();
 
 	/**
 	 * second version mutate
@@ -49,7 +49,7 @@ public class Ga {
 	 * @return
 	 */
 
-	public boolean check(Long x) {
+	public boolean check(Integer x) {
 		boolean getx=false;
 		if(x<maxgeneration) {
 			getx=true;
@@ -65,12 +65,12 @@ public class Ga {
 	 * @return
 	 */
 
-	public HashMap<String, Long> GetfitnessScore(HashMap<String, Long> putpattern) {
-		HashMap<String,Long> putpattern2  = new HashMap<>();
+	public HashMap<String, Integer> GetfitnessScore(HashMap<String, Integer> putpattern) {
+		HashMap<String,Integer> putpattern2  = new HashMap<>();
 		for(String key:putpattern.keySet()){
 			  int i = putpattern.get(key).intValue();
 			  double d = (1000/(double)(10000-i))*(double)100000;
-		      long fitnessScore = (long)d;
+		      int fitnessScore = (int)d;
 		       putpattern2.put(key,fitnessScore);
 		  }
 		return putpattern2;
@@ -80,14 +80,14 @@ public class Ga {
 	 * @param patterncheck
 	 * @return
 	 */
-	public int decideTermination(HashMap<String,Long> patterncheck) {
+	public int decideTermination(HashMap<String,Integer> patterncheck) {
 		Population p=new Population();
 		ArrayList<String> finalPoints=new ArrayList<>();
 		boolean check=false;
 		int checkint=0;
 		ArrayList<String> getFinalPattern=new ArrayList<>();
 		for(String patternkey:patterncheck.keySet()) {
-			Long x =patterncheck.get(patternkey);
+			int x =patterncheck.get(patternkey);
 			if(check(x)==true) {
 				checkint+=0;
 			}else {
@@ -122,12 +122,12 @@ public class Ga {
 	 * @param putpattern2,trypattern
 	 * @return
 	 */
-		public HashMap<String,String> Selection(HashMap<String, Long> putpattern2, HashMap<String,String> trypattern) {
+		public HashMap<String,String> Selection(HashMap<String, Integer> putpattern2, HashMap<String,String> trypattern) {
 			HashMap<String,String> toppattern=new HashMap<String,String>();
 			List<String> top=new ArrayList<String>();
-			List<Map.Entry<String,Long>> topsList =new ArrayList<Map.Entry<String,Long>>(putpattern2.entrySet());
-			Collections.sort(topsList, new Comparator<Map.Entry<String,Long>>(){
-				public int compare(Map.Entry<String,Long> o1,Map.Entry<String,Long> o2){
+			List<Map.Entry<String,Integer>> topsList =new ArrayList<Map.Entry<String,Integer>>(putpattern2.entrySet());
+			Collections.sort(topsList, new Comparator<Map.Entry<String,Integer>>(){
+				public int compare(Map.Entry<String,Integer> o1,Map.Entry<String,Integer> o2){
 					return (int)(o1.getValue()-o2.getValue());
 				}
 			});

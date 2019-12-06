@@ -28,7 +28,7 @@ public class CheckGenerationTest {
 		System.out.println("*test generation pattern: " + tryp);
 		final Game.Behavior generations = Game.run(0L, tryp);
 		System.out.println("*get generation:"+generations.generation);
-		assertEquals(ga.check(generations.generation), true);
+		assertEquals(ga.check((int)generations.generation), true);
 		
 		String pattern2="0011111100000000100001101001101001110000";
 		HashMap<String,String> runPattern2=p.convertPattern(pattern2);
@@ -36,7 +36,7 @@ public class CheckGenerationTest {
 		System.out.println("*test generation pattern2: " + tryp2);
 		final Game.Behavior generations2 = Game.run(0L, tryp2);
 		System.out.println("*get generation2:"+generations2.generation);
-		assertEquals(ga.check(generations2.generation), true);
+		assertEquals(ga.check((int)generations2.generation), true);
 		//0011111100000000100001101001101001110000110100000001001011001001
 		
 		String pattern3="0101011111000000111000110101000000011111011100100001000100000100";
@@ -45,7 +45,7 @@ public class CheckGenerationTest {
 		System.out.println("*test generation pattern2: " + tryp3);
 		final Game.Behavior generations3 = Game.run(0L, tryp3);
 		System.out.println("*get generation3:"+generations3.generation);
-		assertEquals(ga.check(generations3.generation), false);
+		assertEquals(ga.check((int)generations3.generation), false);
 		//0101011111000000111000110101000000011111011100100001000100000100
 		
 		

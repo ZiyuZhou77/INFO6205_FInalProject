@@ -6,9 +6,9 @@ import edu.neu.coe.info6205.life.base.Game;
 //import edu.neu.coe.info6205.life.library.OurLibrary;
    
 public class Main {
-	static HashMap<String,Long> putpattern;
+	static HashMap<String,Integer> putpattern;
 	static HashMap<String,String> trypattern;
-	static HashMap<String,Long> putpattern2;
+	static HashMap<String,Integer> putpattern2;
 	static HashMap<String,String> trypattern2;
 	static HashMap<String,String> testp;
 	
@@ -30,7 +30,7 @@ public class Main {
 			final Game.Behavior generations = Game.run(0L, runpattern);
 			System.out.println("\n///run next///"+generations.generation+" generation.");
 
-		    putpattern.put(getpatternkey, generations.generation);
+		    putpattern.put(getpatternkey, (int)generations.generation);
 		    trypattern.put(getpatternkey, runpattern);
 		    
 		}
@@ -59,7 +59,7 @@ public class Main {
 				String runpattern2=newPatternList.get(getpatternkey2);
 				final Game.Behavior generations = Game.run(0L, runpattern2);
 				System.out.println("\n///run next 222222///"+generations.generation+" generation.");
-			    putpattern2.put(getpatternkey2, generations.generation);
+			    putpattern2.put(getpatternkey2, (int)generations.generation);
 			    trypattern2.put(getpatternkey2, runpattern2);
 			    
 			}
