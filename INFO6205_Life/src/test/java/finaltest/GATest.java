@@ -1,5 +1,6 @@
 package finaltest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
 
@@ -39,14 +40,13 @@ public class GATest {
 		final Game.Behavior generations = Game.run(0L, runpattern);
 		putpattern.put(Key, generations.generation);
 		System.out.println("Generation:"+generations.generation);
-		assertNotEquals((long)10001,ga.GetfitnessScore(putpattern));
+		assertEquals(10001,ga.GetfitnessScore(putpattern).get(Key).intValue());
 	}
 	
 	@Test
 	//generation = 106
 	public void GetFitnessScoreTestG106() {
 		Ga ga=new Ga();
-	    Population p = new Population();
 		HashMap<String,String> individual=new HashMap<>();
 		HashMap<String,Long>putpattern=new HashMap<>();
 		String Key = "1000010000110110101110100101111000100100110000101011100000010010111110111100000011011100100110011111111101011111010101011000010100010011";
@@ -57,16 +57,15 @@ public class GATest {
 		final Game.Behavior generations = Game.run(0L, runpattern);
 		putpattern.put(Key, generations.generation);
 		System.out.println("Generation:"+generations.generation);
-		assertNotEquals((long)10107,ga.GetfitnessScore(putpattern));
+		assertEquals(10107,ga.GetfitnessScore(putpattern).get(Key).intValue());
 	}
 	
 	@Test
 	public void decideTerminationTest() {
-		HashMap<String,Long> testBlip=new HashMap<>();
-		testBlip.put("0011111100000000100001101001101001110000", (long)3);
-		//-5 5,0 0,2 2,3 3,1 -1
-		
-//		assertNotEquals(testBlip.values(),newindividual.values());
+		HashMap<String,Long> test=new HashMap<>();
+		Ga ga=new Ga();
+		test.put("001001010100000001010000001111110000100011011000", (long) 8);
+		assertEquals(0,ga.decideTermination(test));
 	}
 	
 	
