@@ -25,6 +25,9 @@ public class GATest {
 		assertNotEquals(individual.values(),newindividual.values());
 	}
 	
+
+	
+	
 	@Test
 	//generation = 1
 	public void GetFitnessScoreTestG1() {
