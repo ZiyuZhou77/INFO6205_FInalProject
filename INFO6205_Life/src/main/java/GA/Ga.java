@@ -6,12 +6,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import edu.neu.coe.info6205.life.base.Game;
 
 public class Ga {
 	private static final double mutationRate = 0.5;
 	public static final int maxgeneration=10000;
+
 	ArrayList<Integer> countgen=new ArrayList<>();
 
 	/**
@@ -22,11 +24,13 @@ public class Ga {
 
 	public HashMap<String,String> mutate(HashMap<String,String> mutate) {
 		  HashMap<String,String> mutated  = new HashMap<>();
+//		  long seed = System.currentTimeMillis();
+		  Random random = new Random(Main.seed);
 		  for(String key:mutate.keySet()){
 		      StringBuilder ha = new StringBuilder(key);
 		      int length = key.length();
 		      for(int j=0; j<length;j++){
-		    double i = Math.random();
+		    	  double i = random.nextDouble();
 		          if(i>mutationRate) {
 		       if(key.charAt(j)=='0')
 		          ha.replace(j, j+1, "1");

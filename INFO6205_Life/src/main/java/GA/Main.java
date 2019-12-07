@@ -1,8 +1,10 @@
 package GA;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import edu.neu.coe.info6205.life.base.Game;
+import io.jenetics.util.RandomRegistry;
 //import edu.neu.coe.info6205.life.library.OurLibrary;
    
 public class Main {
@@ -12,15 +14,19 @@ public class Main {
 	static HashMap<String,String> trypattern2;
 	static HashMap<String,String> testp;
 	
-	private static final int PopulationSize = 20;
-	
+	private static final int PopulationSize = 10;
+	public static final long seed = System.currentTimeMillis();
 	public static void main(String args[]) {
 		Ga ga=new Ga();
 		Population population=new Population();
 		
 		putpattern=new HashMap<>();
 		trypattern=new HashMap<>();
-		HashMap<String,String>getpattern=population.getPattern(PopulationSize);
+		
+//		long seed = System.currentTimeMillis();
+//		System.out.println(seed);
+		RandomRegistry.setRandom(new Random(seed));
+		HashMap<String,String>getpattern = population.getPattern(PopulationSize);
 		 /**
 	     * runpattern: points, getpatternkey: bit
 	     * */
@@ -68,6 +74,9 @@ public class Main {
 		}
 		
 		System.out.println("i:"+i);
+		System.out.println("------------------------------------------");
+		System.out.println("Seed:  "+ seed);
+		System.out.println("------------------------------------------");
 		}
 	
 	}

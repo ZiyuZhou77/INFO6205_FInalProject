@@ -2,6 +2,7 @@ package GA;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,7 +12,8 @@ import io.jenetics.Genotype;
 import io.jenetics.util.Factory;
 
 public class Population {
-
+	public static final Integer min = 5;
+    public static final Integer max = 25;
 	/**
 	 * get population pattern: <bites, points>
 	 * @return
@@ -26,9 +28,12 @@ public class Population {
 			/**
 			 *  Define the genotype (factory) suitable for the problem.
 			 */
-			int NumberOfPoint = (int)(Math.random() * 20) + 5;
-			//int NumberOfPoint = 5;
+			long seed = Main.seed;
+			Random random = new Random(seed);
+			int NumberOfPoint = random.nextInt(max) % (max-min+1) + min;
+//			int NumberOfPoint = 5;
 	        //System.out.println(NumberOfPoint);
+			
 	        Factory<Genotype<BitGene>> gtf =
 	                Genotype.of(BitChromosome.of(8, 0.5),NumberOfPoint);
 	/**
