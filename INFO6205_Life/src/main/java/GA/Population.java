@@ -13,7 +13,7 @@ import io.jenetics.util.Factory;
 
 public class Population {
 	public static final Integer min = 5;
-    public static final Integer max = 25;
+    public static final Integer max = 8;
 	/**
 	 * get population pattern: <bites, points>
 	 * @return

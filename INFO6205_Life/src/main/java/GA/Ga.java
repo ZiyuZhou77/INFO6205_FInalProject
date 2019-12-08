@@ -11,7 +11,7 @@ import java.util.Random;
 import edu.neu.coe.info6205.life.base.Game;
 
 public class Ga {
-	private static final double mutationRate = 0.5;
+	private static final double mutationRate = 0.0001;
 	public static final int maxgeneration=10000;
 
 	ArrayList<Integer> countgen=new ArrayList<>();

@@ -14,7 +14,7 @@ public class Main {
 	static HashMap<String,String> trypattern2;
 	static HashMap<String,String> testp;
 	
-	private static final int PopulationSize = 10;
+	private static final int PopulationSize = 20;
 	public static final long seed = System.currentTimeMillis();
 	public static void main(String args[]) {
 		Ga ga=new Ga();
